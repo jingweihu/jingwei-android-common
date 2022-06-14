@@ -1,0 +1,151 @@
+[versions]
+# -------------------------------------------------------------------------
+# Default Android SDK support levels defined below.
+minSdk = "21"
+targetSdk = "31"
+compileSdk = "31"
+# -------------------------------------------------------------------------
+# lint versions *must* be kept in sync with Android Gradle Plugin. To
+# calculate correct lint version, use the following equation:
+# android-lint = android-gradlePlugin + 23.0.0
+# See: https://googlesamples.github.io/android-custom-lint-rules/api-guide.html#example:samplelintcheckgithubproject/lintversion?
+android-gradlePlugin = "7.2.0"
+android-lint = "30.2.0"
+# -------------------------------------------------------------------------
+kotlin = "1.6.20"
+android-lifecycle = "2.2.0"
+android-navigation = "2.4.1"
+android-room = "2.4.1"
+android-work = "2.2.0"
+newrelic = "5.23.0"
+artifactory = "4.24.16"
+moshi = "1.13.0"
+retrofit = "2.5.0"
+okhttp = "4.9.0"
+epoxy = "4.5.0"
+instabug = "10.13.0"
+flipper = "0.149.0"
+cardScan = "2.1.0023"
+detekt = "1.10.0"
+
+[libraries]
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradlePlugin" }
+android-api-gradlePlugin = { module = "com.android.tools.build:gradle-api", version.ref = "android-gradlePlugin" }
+android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-lint" }
+android-lint-checks = { module = "com.android.tools.lint:lint-checks", version.ref = "android-lint" }
+android-lint-tools = { module = "com.android.tools.lint:lint", version.ref = "android-lint" }
+android-lint-tests = { module = "com.android.tools.lint:lint-tests", version.ref = "android-lint" }
+android-annotation = { module = "androidx.annotation:annotation", version = "1.1.0" }
+android-coreKtx = { module = "androidx.core:core-ktx", version = "1.3.1" }
+android-appCompat = { module = "androidx.appcompat:appcompat", version = "1.2.0" }
+android-activity = { module = "androidx.activity:activity-ktx", version = "1.1.0" }
+android-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.2.5" }
+android-recyclerview = { module = "androidx.recyclerview:recyclerview", version = "1.0.0" }
+android-browser = { module = "androidx.browser:browser", version = "1.3.0" }
+android-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version = "1.1.3" }
+android-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "android-lifecycle" }
+android-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "android-lifecycle" }
+android-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "android-lifecycle" }
+android-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "android-lifecycle" }
+android-navigation-gradlePlugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "android-navigation" }
+android-navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "android-navigation" }
+android-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "android-navigation" }
+android-room-runtime = { module = "androidx.room:room-runtime", version.ref = "android-room" }
+android-room-compiler = { module = "androidx.room:room-compiler", version.ref = "android-room" }
+android-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "android-work" }
+android-work-rxjava = { module = "androidx.work:work-rxjava2", version.ref = "android-work" }
+android-work-test = { module = "androidx.work:work-testing", version.ref = "android-work" }
+android-test-coreKtx = { module = "androidx.test:core-ktx", version = "1.4.0" }
+android-test-runner = { module = "androidx.test:runner", version = "1.3.0" }
+android-test-core = { module = "androidx.test:core", version = "1.3.0" }
+android-test-rules = { module = "androidx.test:rules", version = "1.3.0" }
+android-test-junit = { module = "androidx.test.ext:junit", version = "1.1.2" }
+android-test-archCore = { module = "androidx.arch.core:core-testing", version = "2.1.0" }
+android-test-uiAutomator = { module = "androidx.test.uiautomator:uiautomator", version = "2.2.0" }
+android-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version = "3.3.0" }
+
+google-services-gradlePlugin = { module = "com.google.gms:google-services", version = "4.3.3" }
+google-services-maps = { module = "com.google.android.gms:play-services-maps", version = "17.0.1" }
+google-services-mapsUtils = { module = "com.google.maps.android:android-maps-utils", version = "0.5" }
+google-services-auth = { module = "com.google.android.gms:play-services-auth", version = "20.1.0" }
+google-services-authPhone = { module = "com.google.android.gms:play-services-auth-api-phone", version = "18.0.1" }
+google-services-ads = { module = "com.google.android.gms:play-services-ads-identifier", version = "17.0.0" }
+google-services-safetyNet = { module = "com.google.android.gms:play-services-safetynet", version = "17.0.0" }
+google-mlkit-barcodeScanning = { module = "com.google.mlkit:barcode-scanning", version = "17.0.0" }
+google-material = { module = "com.google.android.material:material", version = "1.3.0" }
+google-phoneNumber = { module = "com.googlecode.libphonenumber:libphonenumber", version = "8.12.21" }
+
+firebase-analytics = { module = "com.google.firebase:firebase-analytics", version = "17.0.1" }
+firebase-config = { module = "com.google.firebase:firebase-config", version = "19.0.0" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging", version = "20.2.0" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version = "17.0.1" }
+firebase-crashlytics-gradlePlugin = { module = "com.google.firebase:firebase-crashlytics-gradle", version = "2.4.1" }
+firebase-performance = { module = "com.google.firebase:firebase-perf", version = "19.1.1" }
+firebase-performance-gradlePlugin = { module = "com.google.firebase:perf-plugin", version = "1.3.1" }
+
+react-java = { module = "io.reactivex.rxjava2:rxjava", version = "2.2.10" }
+react-kotlin = { module = "io.reactivex.rxjava2:rxkotlin", version = "2.3.0" }
+react-android = { module = "io.reactivex.rxjava2:rxandroid", version = "2.1.1" }
+react-javaExtras = { module = "com.github.davidmoten:rxjava2-extras", version = "0.2.0" }
+
+moshi-moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi-kotlinCodegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+
+retrofit-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-rxAdapter = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit" }
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version = "2.9.0" } # TODO should match retrofit version
+
+okhttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+okhttp-mockWebServer = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+okhttp-urlConnection = { module = "com.squareup.okhttp3:okhttp-urlconnection", version.ref = "okhttp" }
+
+segment-analytics = { module = "com.segment.analytics.android:analytics", version = "4.6.0" }
+segment-firebase = { module = "com.segment.analytics.android.integrations:firebase", version = "1.3.1" }
+newrelic-gradlePlugin = { module = "com.newrelic.agent.android:agent-gradle-plugin", version.ref = "newrelic" }
+newrelic-agent = { module = "com.newrelic.agent.android:android-agent", version.ref = "newrelic" }
+sendbird = { module = "com.sendbird.sdk:sendbird-android-sdk", version = "3.1.10" }
+sendbird-uikit = { module = "com.sendbird.sdk:uikit", version = "2.0.2" }
+epoxy = { module = "com.airbnb.android:epoxy", version.ref = "epoxy" }
+epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxy" }
+flipper = { module = "com.facebook.flipper:flipper", version.ref = "flipper" }
+flipper-network = { module = "com.facebook.flipper:flipper-network-plugin", version.ref = "flipper" }
+instabug = { module = "com.instabug.library:instabug", version.ref = "instabug" }
+instabug-okhttpInterceptor = { module = "com.instabug.library:instabug-with-okhttp-interceptor", version.ref = "instabug" }
+artifactory-gradlePlugin = { module = "org.jfrog.buildinfo:build-info-extractor-gradle", version.ref = "artifactory" }
+butterknife-gradlePlugin = { module = "com.jakewharton:butterknife-gradle-plugin", version = "10.2.3" }
+facebook = { module = "com.facebook.android:facebook-android-sdk", version = "13.0.0" }
+gson = { module = "com.google.code.gson:gson", version = "2.8.9" }
+joda = { module = "net.danlew:android.joda", version = "2.10.1" }
+lottie = { module = "com.airbnb.android:lottie", version = "3.4.4" }
+sentry = { module = "io.sentry:sentry-android", version = "5.7.1" }
+jacoco-core = { module = "org.jacoco:org.jacoco.core", version = "0.8.7" }
+soloader = { module = "com.facebook.soloader:soloader", version = "0.10.1" }
+cardScan = { module = "com.getbouncer:cardverify-ui", version.ref = "cardScan" }
+cardScan-full = { module = "com.getbouncer:scan-payment-full", version.ref = "cardScan" }
+stripe = { module = "com.stripe:stripe-android", version = "16.10.2" }
+stripe-cardScan = { module = "com.stripe:stripecardscan", version = "20.0.0" }
+vgs = { module = "com.verygoodsecurity:vgscollect", version = "1.6.13" }
+
+test-junit = { module = "junit:junit", version = "4.12" }
+test-robolectric = { module = "org.robolectric:robolectric", version = "4.8.1" }
+test-mockito-inline = { module = "org.mockito:mockito-inline", version = "3.4.0" }
+test-mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version = "2.1.0" }
+test-truth = { module = "com.google.truth:truth", version = "1.1.2" }
+
+detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+
+[plugins]
+artifactory = { id = "com.jfrog.artifactory", version.ref = "artifactory" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+sentry = { id = "io.sentry.android.gradle", version = "2.0.0" }
+doctor = { id = "com.osacky.doctor", version = "0.7.3" }
+versionChecker = { id = "com.github.ben-manes.versions", version = "0.42.0" }
+dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version = "1.1.0" }
+

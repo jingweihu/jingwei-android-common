@@ -1,4 +1,4 @@
-package link.jingweih.android
+package link.jingweih.android.sandboxapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

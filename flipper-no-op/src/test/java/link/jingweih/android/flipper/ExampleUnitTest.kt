@@ -1,4 +1,4 @@
-package link.jingweih.android
+package link.jingweih.android.flipper
 
 import org.junit.Test
 
