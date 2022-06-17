@@ -5,11 +5,19 @@ pluginManagement {
         mavenCentral()
     }
 }
+enableFeaturePreview('VERSION_CATALOGS')
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = "https://maven.pkg.github.com/jingweihu/jingwei-android-common"
+            credentials {
+                username = System.getenv("GITHUB_API_USERNAME")
+                password = System.getenv("GITHUB_API_TOKEN")
+            }
+        }
     }
 }
 rootProject.name = "Sandboxapp"

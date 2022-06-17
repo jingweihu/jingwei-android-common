@@ -55,8 +55,13 @@ android {
 dependencies {
 
     // Flipper
-    debugImplementation(project(":flipper"))
-    releaseImplementation(project(":flipper-no-op"))
+    if (rootProject.hasProperty("mavenTestEnable")) {
+        debugImplementation("link.jingweih.android:flipper:1.0.0")
+        releaseImplementation("link.jingweih.android:flipper-no-op:1.0.0")
+    } else {
+        debugImplementation(project(":flipper"))
+        releaseImplementation(project(":flipper-no-op"))
+    }
 
     //ANDROID
     implementation(libs.google.material)
