@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import link.jingweih.android.sandboxapp.databinding.ActivityMainBinding
 import link.jingweih.android.sandboxapp.ui.mvvmexample.MvvmExampleActivity
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
         }
-        binding.drawerLayout.closeDrawer(Gravity.START)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }

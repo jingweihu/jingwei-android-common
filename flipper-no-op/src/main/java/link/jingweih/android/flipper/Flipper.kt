@@ -5,8 +5,7 @@ import okhttp3.Interceptor
 
 object Flipper {
 
-    fun init(context: Context, config: FlipperConfig.() -> Unit) {
-    }
+    fun init(context: Context, config: FlipperConfig.() -> Unit) = Unit
 
     fun getNetworkInterceptor(): Interceptor? {
         return null
