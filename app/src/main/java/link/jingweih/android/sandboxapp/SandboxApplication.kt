@@ -1,12 +1,16 @@
 package link.jingweih.android.sandboxapp
 
 import android.app.Application
+import com.google.firebase.FirebaseApp
+import dagger.hilt.android.HiltAndroidApp
 import link.jingweih.android.flipper.Flipper
 
+@HiltAndroidApp
 class SandboxApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         initFlipper()
     }
 

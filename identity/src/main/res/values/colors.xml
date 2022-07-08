@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_text_color">#FF000000</color>
+    <color name="secondary_text_color">#808080</color>
+    <color name="primary_white_text_color">#FFFFFFFF</color>
+    <color name="primary_white">#FFFFFFFF</color>
+    <color name="primary_blue">#3897f1</color>
+    <color name="primary_divider">#BFBEBC</color>
+    <color name="secondary_white">#FEFEFE</color>
+    <color name="primary_light_surface">#F6F6F4</color>
+    <color name="primary_dark_surface">#202020</color>
+</resources>

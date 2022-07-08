@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="HardcodedText">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/nav_mvvm"
         android:title="@string/mvvm_item_name" />
 
+    <item
+        android:id="@+id/nav_login"
+        android:title="@string/firebase_login" />
 </menu>

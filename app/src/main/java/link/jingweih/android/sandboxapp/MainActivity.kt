@@ -2,18 +2,30 @@ package link.jingweih.android.sandboxapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
+import link.jingweih.android.identity.ui.FirebaseLoginActivityContract
 import link.jingweih.android.sandboxapp.databinding.ActivityMainBinding
 import link.jingweih.android.sandboxapp.ui.mvvmexample.MvvmExampleActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+
+    private val createLoginActivity =
+        registerForActivityResult(FirebaseLoginActivityContract()) { result ->
+            // parseResult will return this as string?
+            if (result) {
+                Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Login Fail", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -46,6 +58,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_mvvm -> {
                 val intent = Intent(this, MvvmExampleActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.nav_login -> {
+                createLoginActivity.launch(getString(R.string.app_name))
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

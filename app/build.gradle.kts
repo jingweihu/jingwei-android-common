@@ -2,6 +2,9 @@ plugins {
     id (BuildPlugins.androidApplication)
     id (BuildPlugins.kotlinAndroid)
     id (BuildPlugins.kotlinAndroidExtensions)
+    id (BuildPlugins.kotlinKapt)
+    id (BuildPlugins.androidHilt)
+    id (BuildPlugins.googleServices)
 }
 
 android {
@@ -17,7 +20,7 @@ android {
     compileSdk = Versions.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = "link.jingweih.android"
+        applicationId = "link.jingweih.android.sandboxapp"
         minSdk = Versions.MIN_SDK_VERSION
         targetSdk = Versions.TARGET_SDK_VERSION
         versionCode = Versions.VERSION_CODE
@@ -63,6 +66,9 @@ dependencies {
         releaseImplementation(project(":flipper-no-op"))
     }
 
+    implementation(project(":identity"))
+    implementation("com.google.firebase:firebase-common-ktx:20.1.1")
+
     //ANDROID
     implementation(libs.google.material)
     implementation(libs.android.activity)
@@ -74,6 +80,8 @@ dependencies {
     implementation(libs.android.navigation.ui)
     implementation(libs.android.lifecycle.livedata)
     implementation(libs.android.lifecycle.viewmodel)
+    implementation(libs.android.hilt)
+    kapt(libs.android.hilt.compiler)
 
     testImplementation(libs.test.junit)
 }

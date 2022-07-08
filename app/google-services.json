@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799540866500",
+    "project_id": "sandboxapp-5a736",
+    "storage_bucket": "sandboxapp-5a736.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799540866500:android:46b8196e4a01e0461cc891",
+        "android_client_info": {
+          "package_name": "link.jingweih.android.sandboxapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799540866500-91pnrfqqq4f86gqpa8qc5hbo1v05bo21.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARxlYbwrqaxAx8ZY9YHEXAvX-hakM79zI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799540866500-91pnrfqqq4f86gqpa8qc5hbo1v05bo21.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

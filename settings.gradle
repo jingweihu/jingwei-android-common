@@ -24,3 +24,5 @@ rootProject.name = "Sandboxapp"
 include ':app'
 include ':flipper'
 include ':flipper-no-op'
+include ':identity'
+include ':core-framework'

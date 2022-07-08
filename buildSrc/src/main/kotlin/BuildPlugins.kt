@@ -1,21 +1,20 @@
 object BuildPlugins {
     const val kotlin = "kotlin"
     const val detekt = "io.gitlab.arturbosch.detekt"
-    const val kapt = "kapt"
     const val javaLibrary = "java-library"
 
     const val androidApplication = "com.android.application"
+    const val kotlinKapt = "kotlin-kapt"
     const val androidLibrary = "com.android.library"
     const val androidLint = "com.android.lint"
     const val kotlinAndroid = "kotlin-android"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val androidHilt = "dagger.hilt.android.plugin"
 
     const val googleServices = "com.google.gms.google-services"
     const val firebaseCrashlytics = "com.google.firebase.crashlytics"
     const val safeArgs = "androidx.navigation.safeargs.kotlin"
     const val firebasePerformance = "com.google.firebase.firebase-perf"
-
-    const val sentry = "io.sentry.android.gradle"
 }
 
 /**

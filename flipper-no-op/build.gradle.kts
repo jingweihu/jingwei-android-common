@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk = Versions.MIN_SDK_VERSION
+    compileSdk = Versions.COMPILE_SDK_VERSION
 
     defaultConfig {
         minSdk = Versions.MIN_SDK_VERSION
@@ -30,7 +30,6 @@ android {
 
 dependencies {
 
-    implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.android.annotation)
 
     // NetworkInterceptor

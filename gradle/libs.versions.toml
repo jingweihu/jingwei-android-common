@@ -17,16 +17,13 @@ android-lifecycle = "2.2.0"
 android-navigation = "2.4.1"
 android-room = "2.4.1"
 android-work = "2.2.0"
-newrelic = "5.23.0"
-artifactory = "4.24.16"
 moshi = "1.13.0"
 retrofit = "2.5.0"
 okhttp = "4.9.0"
 epoxy = "4.5.0"
-instabug = "10.13.0"
 flipper = "0.149.0"
-cardScan = "2.1.0023"
 detekt = "1.10.0"
+android-hilt = "2.40"
 
 [libraries]
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -48,6 +45,7 @@ android-recyclerview = { module = "androidx.recyclerview:recyclerview", version 
 android-browser = { module = "androidx.browser:browser", version = "1.3.0" }
 android-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version = "1.1.3" }
 android-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "android-lifecycle" }
+android-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "android-lifecycle" }
 android-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "android-lifecycle" }
 android-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "android-lifecycle" }
 android-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "android-lifecycle" }
@@ -100,26 +98,17 @@ moshi-kotlinCodegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", vers
 retrofit-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-rxAdapter = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit" }
 retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
-retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version = "2.9.0" } # TODO should match retrofit version
+android-hilt = { module = "com.google.dagger:hilt-android", version.ref = "android-hilt"}
+android-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "android-hilt"}
 
 okhttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
 okhttp-mockWebServer = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
 okhttp-urlConnection = { module = "com.squareup.okhttp3:okhttp-urlconnection", version.ref = "okhttp" }
 
-segment-analytics = { module = "com.segment.analytics.android:analytics", version = "4.6.0" }
-segment-firebase = { module = "com.segment.analytics.android.integrations:firebase", version = "1.3.1" }
-newrelic-gradlePlugin = { module = "com.newrelic.agent.android:agent-gradle-plugin", version.ref = "newrelic" }
-newrelic-agent = { module = "com.newrelic.agent.android:android-agent", version.ref = "newrelic" }
-sendbird = { module = "com.sendbird.sdk:sendbird-android-sdk", version = "3.1.10" }
-sendbird-uikit = { module = "com.sendbird.sdk:uikit", version = "2.0.2" }
 epoxy = { module = "com.airbnb.android:epoxy", version.ref = "epoxy" }
 epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxy" }
 flipper = { module = "com.facebook.flipper:flipper", version.ref = "flipper" }
 flipper-network = { module = "com.facebook.flipper:flipper-network-plugin", version.ref = "flipper" }
-instabug = { module = "com.instabug.library:instabug", version.ref = "instabug" }
-instabug-okhttpInterceptor = { module = "com.instabug.library:instabug-with-okhttp-interceptor", version.ref = "instabug" }
-artifactory-gradlePlugin = { module = "org.jfrog.buildinfo:build-info-extractor-gradle", version.ref = "artifactory" }
-butterknife-gradlePlugin = { module = "com.jakewharton:butterknife-gradle-plugin", version = "10.2.3" }
 facebook = { module = "com.facebook.android:facebook-android-sdk", version = "13.0.0" }
 gson = { module = "com.google.code.gson:gson", version = "2.8.9" }
 joda = { module = "net.danlew:android.joda", version = "2.10.1" }
@@ -127,11 +116,6 @@ lottie = { module = "com.airbnb.android:lottie", version = "3.4.4" }
 sentry = { module = "io.sentry:sentry-android", version = "5.7.1" }
 jacoco-core = { module = "org.jacoco:org.jacoco.core", version = "0.8.7" }
 soloader = { module = "com.facebook.soloader:soloader", version = "0.10.1" }
-cardScan = { module = "com.getbouncer:cardverify-ui", version.ref = "cardScan" }
-cardScan-full = { module = "com.getbouncer:scan-payment-full", version.ref = "cardScan" }
-stripe = { module = "com.stripe:stripe-android", version = "16.10.2" }
-stripe-cardScan = { module = "com.stripe:stripecardscan", version = "20.0.0" }
-vgs = { module = "com.verygoodsecurity:vgscollect", version = "1.6.13" }
 
 test-junit = { module = "junit:junit", version = "4.12" }
 test-robolectric = { module = "org.robolectric:robolectric", version = "4.8.1" }
@@ -141,11 +125,4 @@ test-truth = { module = "com.google.truth:truth", version = "1.1.2" }
 
 detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
-[plugins]
-artifactory = { id = "com.jfrog.artifactory", version.ref = "artifactory" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
-sentry = { id = "io.sentry.android.gradle", version = "2.0.0" }
-doctor = { id = "com.osacky.doctor", version = "0.7.3" }
-versionChecker = { id = "com.github.ben-manes.versions", version = "0.42.0" }
-dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version = "1.1.0" }
 
