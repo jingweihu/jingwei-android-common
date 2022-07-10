@@ -1,37 +1,47 @@
 package link.jingweih.android.identity.repository
 
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.suspendCancellableCoroutine
-import link.jingweih.android.identity.model.User
 import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
+@Singleton
 class FirebaseLoginRepository @Inject constructor(private val auth: FirebaseAuth) {
 
-    suspend fun login(email: String, password: String): User? {
+    suspend fun login(email: String, password: String): AuthResult {
         return suspendCancellableCoroutine { cont ->
-            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                val firebaseUser = task.result.user
-                if (task.isSuccessful && firebaseUser != null) {
-                    cont.resume(User.fromFirebaseUser(firebaseUser))
-                } else {
-                    cont.resume(null)
-                }
+            auth.signInWithEmailAndPassword(email, password).addOnSuccessListener { authResult ->
+                cont.resume(authResult)
+            }.addOnFailureListener {
+                cont.resumeWithException(it)
             }
         }
     }
 
-    suspend fun register(email: String, password: String): User? {
+    suspend fun register(email: String, password: String): AuthResult {
         return suspendCancellableCoroutine { cont ->
-            auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                val firebaseUser = task.result.user
-                if (task.isSuccessful && firebaseUser != null) {
-                    firebaseUser.sendEmailVerification()
-                    cont.resume(User.fromFirebaseUser(firebaseUser))
-                } else {
-                    cont.resume(null)
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnSuccessListener { authResult ->
+                    val firebaseUser = authResult.user
+                    firebaseUser?.sendEmailVerification()
+                    cont.resume(authResult)
+                }.addOnFailureListener {
+                    cont.resumeWithException(it)
                 }
-            }
+        }
+    }
+
+    suspend fun sendPasswordResetEmail(email: String): Boolean {
+        return suspendCancellableCoroutine { cont ->
+            auth.sendPasswordResetEmail(email)
+                .addOnSuccessListener {
+                    cont.resume(true)
+                }.addOnFailureListener {
+                    cont.resumeWithException(it)
+                }
         }
     }
 }

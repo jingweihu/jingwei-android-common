@@ -2,8 +2,6 @@ plugins {
     id (BuildPlugins.androidLibrary)
     id (BuildPlugins.kotlinAndroid)
     id (BuildPlugins.kotlinAndroidExtensions)
-    id (BuildPlugins.kotlinKapt)
-    id (BuildPlugins.androidHilt)
 }
 
 android {
@@ -45,18 +43,8 @@ dependencies {
     implementation(libs.android.annotation)
     implementation(libs.android.navigation.fragment)
     implementation(libs.android.navigation.ui)
-    implementation(libs.android.lifecycle.livedata)
-    implementation(libs.android.lifecycle.viewmodel)
-    implementation(libs.android.lifecycle.runtime)
-
-    implementation(libs.android.hilt)
-    kapt(libs.android.hilt.compiler)
 
     implementation(project(":core-framework"))
-    implementation(project(":core-ui"))
-
-    // firebase
-    implementation("com.google.firebase:firebase-auth-ktx:21.0.6")
 
     testImplementation(libs.test.junit)
 }

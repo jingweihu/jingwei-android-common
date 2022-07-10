@@ -13,7 +13,12 @@
     <string name="already_have_account">Have an account? <b>Login</b></string>
     <string name="or">OR</string>
     <string name="invalid_email">Not a valid email</string>
+    <string name="count_down_time">(%1$s s)</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="password_not_same">Password should be same</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="send_code">Send Code</string>
+    <string name="reset_password_title">Send the code to your email to reset the password</string>
+    <string name="reset_password_title_in_progress">We have sent a reset password to <b>%1$s</b> a while go</string>
+    <string name="reset_email_sent">The reset password email has been sent</string>
 </resources>

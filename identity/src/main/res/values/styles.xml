@@ -9,6 +9,5 @@
         <item name="android:paddingStart">@dimen/padding_20_dp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/secondary_text_color</item>
     </style>
 </resources>

@@ -12,9 +12,13 @@
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/resetPasswordFragment"
-        android:name="link.jingweih.android.identity.ui.FirebaseResetPasswordFragment"
+        android:name="link.jingweih.android.identity.ui.resetpassword.FirebaseResetPasswordFragment"
         android:label="fragment_reset_password"
-        tools:layout="@layout/fragment_reset_password" />
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="link.jingweih.android.identity.ui.login.FirebaseLoginFragment"
@@ -25,5 +29,14 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="link.jingweih.android.identity.ui.resetpassword.FirebaseNewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" >
+        <argument
+            android:name="code"
+            app:argType="string" />
     </fragment>
 </navigation>

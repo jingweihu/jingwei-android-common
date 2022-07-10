@@ -18,8 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 internal class FirebaseLoginViewModel @Inject constructor(
     private val firebaseLoginUseCase: FirebaseLoginUseCase
-): ViewModel() {
-    private val _loginForm = MutableLiveData<LoginFormState>()
+) : ViewModel() {
+    private val _loginForm = MutableLiveData(LoginFormState(isDataValid = false))
     val loginFormState: LiveData<LoginFormState> = _loginForm
 
     private val _loginUiState = MutableLiveData<LoginUiState>()
@@ -34,7 +34,7 @@ internal class FirebaseLoginViewModel @Inject constructor(
             when (val result = firebaseLoginUseCase(LoginInput(email, password))) {
                 is Result.Success -> _loginUiState.value = LoginUiState.Success(result.data)
                 is Result.Error -> _loginUiState.value =
-                    LoginUiState.Failure
+                    LoginUiState.Failure(result.exception.message)
             }
         }
 
@@ -54,7 +54,6 @@ internal class FirebaseLoginViewModel @Inject constructor(
     }
 }
 
-
 data class LoginFormState(
     val emailError: Int? = null,
     val passwordError: Int? = null,
@@ -63,5 +62,5 @@ data class LoginFormState(
 
 sealed class LoginUiState {
     data class Success(val user: User) : LoginUiState()
-    object Failure : LoginUiState()
+    data class Failure(val error: String?) : LoginUiState()
 }

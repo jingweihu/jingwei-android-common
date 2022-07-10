@@ -10,9 +10,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import link.jingweih.android.identity.R
 import link.jingweih.android.identity.databinding.FragmentLoginBinding
 import link.jingweih.android.identity.ui.EXTRA_APPLICATION_NAME
-import link.jingweih.jingwei.core.framework.ui.BaseFragment
+import link.jingweih.core.ui.toast.toast
 import link.jingweih.jingwei.core.framework.exts.applyText
 import link.jingweih.jingwei.core.framework.exts.getIntent
+import link.jingweih.jingwei.core.framework.ui.BaseFragment
 
 @AndroidEntryPoint
 internal class FirebaseLoginFragment : BaseFragment<FragmentLoginBinding>() {
@@ -36,11 +37,13 @@ internal class FirebaseLoginFragment : BaseFragment<FragmentLoginBinding>() {
             binding.loginButton.isEnabled = true
         }
 
-        binding.loginButton.setOnClickListener {
-            viewModel.login(
-                binding.loginEmail.text.toString(),
-                binding.loginPassword.text.toString()
-            )
+        binding.loginButton.apply {
+            setOnClickListener {
+                viewModel.login(
+                    binding.loginEmail.text.toString(),
+                    binding.loginPassword.text.toString()
+                )
+            }
         }
     }
 
@@ -68,9 +71,7 @@ internal class FirebaseLoginFragment : BaseFragment<FragmentLoginBinding>() {
                     }
                 }
                 is LoginUiState.Failure -> {
-                    activity?.apply {
-                        finish()
-                    }
+                    toast(message = uiState.error ?: "Unknown error")
                 }
             }
         }

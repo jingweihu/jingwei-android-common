@@ -21,7 +21,7 @@ class FirebaseRegisterViewModel @Inject constructor(
     private val firebaseRegisterUseCase: FirebaseRegisterUseCase
 ) : ViewModel() {
 
-    private val _registerForm = MutableLiveData<RegisterFormState>()
+    private val _registerForm = MutableLiveData(RegisterFormState(isDataValid = false))
     val registerFormState: LiveData<RegisterFormState> = _registerForm
 
     private val _registerUiState = MutableLiveData<RegisterUiState>()
@@ -36,7 +36,7 @@ class FirebaseRegisterViewModel @Inject constructor(
             when (val result = firebaseRegisterUseCase(RegisterInput(email, password))) {
                 is Result.Success -> _registerUiState.value = RegisterUiState.Success(result.data)
                 is Result.Error -> _registerUiState.value =
-                    RegisterUiState.Failure
+                    RegisterUiState.Failure(result.exception.message)
             }
         }
 
@@ -69,5 +69,5 @@ data class RegisterFormState(
 
 sealed class RegisterUiState {
     data class Success(val user: User) : RegisterUiState()
-    object Failure : RegisterUiState()
+    data class Failure(val error: String?) : RegisterUiState()
 }

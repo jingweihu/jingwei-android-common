@@ -6,20 +6,21 @@ import kotlinx.coroutines.withContext
 abstract class BaseUseCase<in Input, out R : Any>(private val defaultDispatcher: CoroutineDispatcher) {
 
     suspend operator fun invoke(input: Input): Result<R> {
-        return try {
-            withContext(defaultDispatcher) {
+        return withContext(defaultDispatcher) {
+            try {
                 execute(input).let {
                     Result.Success(it)
                 }
-            }
-        } catch (e: Exception) {
+            } catch (e: Exception) {
 //            if (e is CancellationException) {
 //                Result.Error()
 //            }
 //            // Allow the coroutine to be cancelled and not execute any further.
 //            allowCancel(e)
 
-            Result.Error(e)
+                Result.Error(e)
+            }
+
         }
     }
 

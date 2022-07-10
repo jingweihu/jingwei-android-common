@@ -37,8 +37,8 @@ dependencies {
 
     implementation(libs.android.annotation)
 
-    implementation(libs.flipper)
-    implementation(libs.flipper.network)
+    implementation(libs.fb.flipper)
+    implementation(libs.fb.flipper.network)
     implementation(libs.soloader)
 
     // NetworkInterceptor
