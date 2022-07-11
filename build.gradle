@@ -55,6 +55,12 @@ allprojects {
     }
 }
 
+task installGitHook(type: Copy) {
+    from new File(rootProject.rootDir, 'hooks/pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+    fileMode 0777
+}
+
 def publishAbleLibs = [
     "flipper-no-op",
     "flipper",
