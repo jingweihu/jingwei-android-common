@@ -15,7 +15,7 @@ dependencyResolutionManagement {
             url = "https://maven.pkg.github.com/jingweihu/jingwei-android-common"
             credentials {
                 username = System.getenv("GITHUB_API_USERNAME")
-                password = System.getenv("GITHUB_API_TOKEN")
+                password = System.getenv("GITHUB_API_READ_TOKEN")
             }
         }
     }

@@ -5,6 +5,7 @@ import kotlinx.coroutines.withContext
 
 abstract class BaseUseCase<in Input, out R : Any>(private val defaultDispatcher: CoroutineDispatcher) {
 
+    @Suppress("TooGenericExceptionCaught")
     suspend operator fun invoke(input: Input): Result<R> {
         return withContext(defaultDispatcher) {
             try {

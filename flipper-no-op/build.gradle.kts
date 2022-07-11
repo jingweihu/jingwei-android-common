@@ -1,7 +1,7 @@
 plugins {
     id (BuildPlugins.androidLibrary)
     id (BuildPlugins.kotlinAndroid)
-    id (BuildPlugins.kotlinAndroidExtensions)
+    kotlin (BuildPlugins.androidExtensions)
 }
 
 android {
@@ -34,4 +34,6 @@ dependencies {
 
     // NetworkInterceptor
     implementation(libs.okhttp.loggingInterceptor)
+
+    testImplementation(libs.test.junit)
 }

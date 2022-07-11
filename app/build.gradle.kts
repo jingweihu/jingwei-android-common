@@ -1,7 +1,7 @@
 plugins {
     id (BuildPlugins.androidApplication)
     id (BuildPlugins.kotlinAndroid)
-    id (BuildPlugins.kotlinAndroidExtensions)
+    kotlin (BuildPlugins.androidExtensions)
     id (BuildPlugins.kotlinKapt)
     id (BuildPlugins.androidHilt)
     id (BuildPlugins.googleServices)
@@ -65,7 +65,6 @@ dependencies {
         debugImplementation(project(":flipper"))
         releaseImplementation(project(":flipper-no-op"))
     }
-
     implementation(project(":identity"))
     implementation("com.google.firebase:firebase-common-ktx:20.1.1")
 

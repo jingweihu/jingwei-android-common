@@ -21,10 +21,11 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+
 allprojects {
-    apply { plugin(BuildPlugins.detekt)}
+    apply { plugin(BuildPlugins.detekt) }
     group = "link.jingweih.android"
-    version = "1.0.0"
+    version = "1.0.1"
     repositories {
         google()
         mavenCentral()
@@ -33,7 +34,8 @@ allprojects {
         buildUponDefaultConfig = true // preconfigure defaults
         allRules = false // activate all available (even unstable) rules.
         config = files("$rootDir/config/detekt.yml")
-        baseline = file("$rootDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
+        baseline = file("$rootDir/config/baseline.xml")
+        // a way of suppressing issues before introducing detekt
     }
 
     tasks.named("detekt").configure {
@@ -53,10 +55,19 @@ allprojects {
     }
 }
 
+def publishAbleLibs = [
+    "flipper-no-op",
+    "flipper",
+    "identity"
+]
+
 subprojects {
     apply plugin: "maven-publish"
     project.afterEvaluate {
-        if (!plugins.hasPlugin("android")) {
+        configure(android.lintOptions) {
+            abortOnError false
+        }
+        if (publishAbleLibs.contains(project.name) && !plugins.hasPlugin("android")) {
             publishing {
                 publications {
                     maven(MavenPublication) {
@@ -77,7 +88,7 @@ subprojects {
                         url = "https://maven.pkg.github.com/jingweihu/jingwei-android-common/"
                         credentials {
                             username = System.getenv("GITHUB_API_USERNAME")
-                            password = System.getenv("GITHUB_API_TOKEN")
+                            password = System.getenv("GITHUB_API_PUBLISH_TOKEN")
                         }
                     }
                 }

@@ -105,8 +105,8 @@ okhttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor
 okhttp-mockWebServer = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
 okhttp-urlConnection = { module = "com.squareup.okhttp3:okhttp-urlconnection", version.ref = "okhttp" }
 
-epoxy = { module = "com.airbnb.android:epoxy", version.ref = "epoxy" }
-epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxy" }
+airbnb-epoxy = { module = "com.airbnb.android:epoxy", version.ref = "epoxy" }
+airbnb-epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxy" }
 fb-flipper = { module = "com.facebook.flipper:flipper", version.ref = "fb-flipper" }
 fb-flipper-network = { module = "com.facebook.flipper:flipper-network-plugin", version.ref = "fb-flipper" }
 facebook = { module = "com.facebook.android:facebook-android-sdk", version = "13.0.0" }

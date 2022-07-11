@@ -64,7 +64,7 @@ class FirebaseResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>
                     override fun onTick(millisUntilFinished: Long) {
                         binding.sendCodeButton.text = getString(
                             R.string.count_down_time,
-                            (millisUntilFinished / 1000).toInt().toString()
+                            (millisUntilFinished / INTERVAL).toInt().toString()
                         )
                         binding.headerTitle.text = getString(
                             R.string.reset_password_title_in_progress,

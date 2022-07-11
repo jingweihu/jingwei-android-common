@@ -8,7 +8,7 @@ object BuildPlugins {
     const val androidLibrary = "com.android.library"
     const val androidLint = "com.android.lint"
     const val kotlinAndroid = "kotlin-android"
-    const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val androidExtensions = "android.extensions"
     const val androidHilt = "dagger.hilt.android.plugin"
 
     const val googleServices = "com.google.gms.google-services"
