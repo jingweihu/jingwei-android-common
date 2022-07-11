@@ -17,17 +17,17 @@ import link.jingweih.jingwei.core.framework.utils.LoginUtil.isPasswordValid
 import link.jingweih.jingwei.core.framework.utils.LoginUtil.isSamePassword
 
 @HiltViewModel
-class FirebaseRegisterViewModel @Inject constructor(
+internal class FirebaseRegisterViewModel @Inject constructor(
     private val firebaseRegisterUseCase: FirebaseRegisterUseCase
 ) : ViewModel() {
 
     private val _registerForm = MutableLiveData(RegisterFormState(isDataValid = false))
-    val registerFormState: LiveData<RegisterFormState> = _registerForm
+    internal val registerFormState: LiveData<RegisterFormState> = _registerForm
 
     private val _registerUiState = MutableLiveData<RegisterUiState>()
-    val registerUiState: LiveData<RegisterUiState> = _registerUiState
+    internal val registerUiState: LiveData<RegisterUiState> = _registerUiState
 
-    fun register(email: String, password: String, confirmPassword: String) {
+    internal fun register(email: String, password: String, confirmPassword: String) {
         if (!validateCheck(email, password, confirmPassword)) {
             return
         }
@@ -60,14 +60,14 @@ class FirebaseRegisterViewModel @Inject constructor(
     }
 }
 
-data class RegisterFormState(
+internal data class RegisterFormState(
     val emailError: Int? = null,
     val passwordError: Int? = null,
     val confirmPasswordError: Int? = null,
     val isDataValid: Boolean = false
 )
 
-sealed class RegisterUiState {
+internal sealed class RegisterUiState {
     data class Success(val user: User) : RegisterUiState()
     data class Failure(val error: String?) : RegisterUiState()
 }

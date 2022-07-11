@@ -59,13 +59,15 @@ dependencies {
 
     // Flipper
     if (rootProject.hasProperty("mavenTestEnable")) {
-        debugImplementation("link.jingweih.android:flipper:1.0.0")
-        releaseImplementation("link.jingweih.android:flipper-no-op:1.0.0")
+        val commonVersion = "1.0.3"
+        debugImplementation("link.jingweih.android:flipper:${commonVersion}")
+        releaseImplementation("link.jingweih.android:flipper-no-op:${commonVersion}")
+        implementation("link.jingweih.android:identity:${commonVersion}")
     } else {
         debugImplementation(project(":flipper"))
         releaseImplementation(project(":flipper-no-op"))
+        implementation(project(":identity"))
     }
-    implementation(project(":identity"))
     implementation("com.google.firebase:firebase-common-ktx:20.1.1")
 
     //ANDROID

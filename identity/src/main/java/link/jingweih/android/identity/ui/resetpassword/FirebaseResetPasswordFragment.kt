@@ -13,7 +13,7 @@ import link.jingweih.jingwei.core.framework.ui.BaseFragment
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-class FirebaseResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>() {
+internal class FirebaseResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>() {
 
     companion object {
         private val COUNTER_TIME = TimeUnit.SECONDS.toMillis(30)

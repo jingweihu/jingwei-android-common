@@ -15,7 +15,7 @@ import link.jingweih.jingwei.core.framework.exts.applyText
 import link.jingweih.jingwei.core.framework.exts.getIntent
 
 @AndroidEntryPoint
-class FirebaseRegisterFragment : BaseFragment<FragmentRegisterBinding>() {
+internal class FirebaseRegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     private val viewModel: FirebaseRegisterViewModel by viewModels()
 
     override fun initView() {
@@ -44,43 +44,43 @@ class FirebaseRegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         }
     }
 
-        override fun initObserver() {
-            viewModel.registerFormState.observe(this) Observer@{
-                val loginState = it ?: return@Observer
+    override fun initObserver() {
+        viewModel.registerFormState.observe(this) Observer@{
+            val loginState = it ?: return@Observer
 
-                // disable login button unless both username / password is valid
-                binding.signupButton.isEnabled = loginState.isDataValid
+            // disable login button unless both username / password is valid
+            binding.signupButton.isEnabled = loginState.isDataValid
 
-                if (loginState.emailError != null) {
-                    binding.signupEmail.error = getString(loginState.emailError)
-                }
-                if (loginState.passwordError != null) {
-                    binding.signupPassword.error = getString(loginState.passwordError)
-                }
-                if (loginState.confirmPasswordError != null) {
-                    binding.signupConfirmPassword.error = getString(loginState.confirmPasswordError)
-                }
+            if (loginState.emailError != null) {
+                binding.signupEmail.error = getString(loginState.emailError)
             }
-
-            viewModel.registerUiState.observe(this) { uiState ->
-                when (uiState) {
-                    is RegisterUiState.Success -> {
-                        activity?.apply {
-                            setResult(RESULT_OK)
-                            finish()
-                        }
-                    }
-                    is RegisterUiState.Failure -> {
-                        toast(message = uiState.error ?: "Unknown error")
-                    }
-                }
+            if (loginState.passwordError != null) {
+                binding.signupPassword.error = getString(loginState.passwordError)
+            }
+            if (loginState.confirmPasswordError != null) {
+                binding.signupConfirmPassword.error = getString(loginState.confirmPasswordError)
             }
         }
 
-        override fun createFragmentViewBinding(
-            inflater: LayoutInflater,
-            container: ViewGroup?
-        ): FragmentRegisterBinding {
-            return FragmentRegisterBinding.inflate(inflater, container, false)
+        viewModel.registerUiState.observe(this) { uiState ->
+            when (uiState) {
+                is RegisterUiState.Success -> {
+                    activity?.apply {
+                        setResult(RESULT_OK)
+                        finish()
+                    }
+                }
+                is RegisterUiState.Failure -> {
+                    toast(message = uiState.error ?: "Unknown error")
+                }
+            }
         }
     }
+
+    override fun createFragmentViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentRegisterBinding {
+        return FragmentRegisterBinding.inflate(inflater, container, false)
+    }
+}

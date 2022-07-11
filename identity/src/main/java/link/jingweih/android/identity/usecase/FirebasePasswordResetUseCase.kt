@@ -6,7 +6,7 @@ import link.jingweih.jingwei.core.framework.concurrent.IODispatcher
 import link.jingweih.jingwei.core.framework.domain.BaseUseCase
 import javax.inject.Inject
 
-class FirebasePasswordResetUseCase @Inject constructor(
+internal class FirebasePasswordResetUseCase @Inject constructor(
     @IODispatcher ioDispatcher: CoroutineDispatcher,
     private val loginRepository: FirebaseLoginRepository
 ) : BaseUseCase<String, Boolean>(ioDispatcher) {

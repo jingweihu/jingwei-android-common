@@ -15,18 +15,18 @@ import java.util.concurrent.TimeUnit.*
 import javax.inject.Inject
 
 @HiltViewModel
-class FirebaseResetPasswordViewModel @Inject constructor(
+internal class FirebaseResetPasswordViewModel @Inject constructor(
     private val resetUseCase: FirebasePasswordResetUseCase
 ) : ViewModel() {
 
     private val _resetPasswordFormState = MutableLiveData(
         ResetPasswordFormState(email = "", startCountDownTime = null))
-    val resetPasswordFormState: LiveData<ResetPasswordFormState> = _resetPasswordFormState
+    internal val resetPasswordFormState: LiveData<ResetPasswordFormState> = _resetPasswordFormState
 
     private val _resetPasswordUiState = MutableLiveData<ResetPasswordUiState>()
-    val resetPasswordUiState: LiveData<ResetPasswordUiState> = _resetPasswordUiState
+    internal val resetPasswordUiState: LiveData<ResetPasswordUiState> = _resetPasswordUiState
 
-    fun sendCode(email: String) {
+    internal fun sendCode(email: String) {
         if (!isEmailValid(email)) {
             _resetPasswordFormState.value =
                 ResetPasswordFormState(
@@ -51,18 +51,18 @@ class FirebaseResetPasswordViewModel @Inject constructor(
         }
     }
 
-    fun reset() {
+    internal fun reset() {
         _resetPasswordUiState.value = null
     }
 }
 
-data class ResetPasswordFormState(
+internal data class ResetPasswordFormState(
     val email: String,
     val emailError: Int? = null,
     val startCountDownTime: Long? = null
 )
 
-sealed class ResetPasswordUiState {
+internal sealed class ResetPasswordUiState {
     object Success : ResetPasswordUiState()
     data class Failure(val error: String?) : ResetPasswordUiState()
 }

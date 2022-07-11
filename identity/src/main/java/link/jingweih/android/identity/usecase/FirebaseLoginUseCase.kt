@@ -8,7 +8,7 @@ import link.jingweih.jingwei.core.framework.concurrent.IODispatcher
 import link.jingweih.jingwei.core.framework.domain.BaseUseCase
 import javax.inject.Inject
 
-class FirebaseLoginUseCase @Inject constructor(
+internal class FirebaseLoginUseCase @Inject constructor(
     private val firebaseLoginRepository: FirebaseLoginRepository,
     @IODispatcher ioDispatcher: CoroutineDispatcher
 ) : BaseUseCase<LoginInput, User>(ioDispatcher) {
@@ -19,7 +19,7 @@ class FirebaseLoginUseCase @Inject constructor(
     }
 }
 
-data class LoginInput(
+internal data class LoginInput(
     val email: String,
     val password: String
 )

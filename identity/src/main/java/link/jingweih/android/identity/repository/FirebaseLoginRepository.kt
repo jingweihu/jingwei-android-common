@@ -9,9 +9,9 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
 @Singleton
-class FirebaseLoginRepository @Inject constructor(private val auth: FirebaseAuth) {
+internal class FirebaseLoginRepository @Inject constructor(private val auth: FirebaseAuth) {
 
-    suspend fun login(email: String, password: String): AuthResult {
+    internal suspend fun login(email: String, password: String): AuthResult {
         return suspendCancellableCoroutine { cont ->
             auth.signInWithEmailAndPassword(email, password).addOnSuccessListener { authResult ->
                 cont.resume(authResult)
@@ -21,7 +21,7 @@ class FirebaseLoginRepository @Inject constructor(private val auth: FirebaseAuth
         }
     }
 
-    suspend fun register(email: String, password: String): AuthResult {
+    internal suspend fun register(email: String, password: String): AuthResult {
         return suspendCancellableCoroutine { cont ->
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener { authResult ->
@@ -34,7 +34,7 @@ class FirebaseLoginRepository @Inject constructor(private val auth: FirebaseAuth
         }
     }
 
-    suspend fun sendPasswordResetEmail(email: String): Boolean {
+    internal suspend fun sendPasswordResetEmail(email: String): Boolean {
         return suspendCancellableCoroutine { cont ->
             auth.sendPasswordResetEmail(email)
                 .addOnSuccessListener {

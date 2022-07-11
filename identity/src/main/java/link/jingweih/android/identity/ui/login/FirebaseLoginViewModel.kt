@@ -20,12 +20,12 @@ internal class FirebaseLoginViewModel @Inject constructor(
     private val firebaseLoginUseCase: FirebaseLoginUseCase
 ) : ViewModel() {
     private val _loginForm = MutableLiveData(LoginFormState(isDataValid = false))
-    val loginFormState: LiveData<LoginFormState> = _loginForm
+    internal val loginFormState: LiveData<LoginFormState> = _loginForm
 
     private val _loginUiState = MutableLiveData<LoginUiState>()
-    val loginUiState: LiveData<LoginUiState> = _loginUiState
+    internal val loginUiState: LiveData<LoginUiState> = _loginUiState
 
-    fun login(email: String, password: String) {
+    internal fun login(email: String, password: String) {
         if (!validateCheck(email, password)) {
             return
         }
@@ -54,13 +54,13 @@ internal class FirebaseLoginViewModel @Inject constructor(
     }
 }
 
-data class LoginFormState(
+internal data class LoginFormState(
     val emailError: Int? = null,
     val passwordError: Int? = null,
     val isDataValid: Boolean = false
 )
 
-sealed class LoginUiState {
+internal sealed class LoginUiState {
     data class Success(val user: User) : LoginUiState()
     data class Failure(val error: String?) : LoginUiState()
 }
