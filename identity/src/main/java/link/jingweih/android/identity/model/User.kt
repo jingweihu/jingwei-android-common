@@ -2,7 +2,7 @@ package link.jingweih.android.identity.model
 
 import com.google.firebase.auth.FirebaseUser
 
-data class User(
+internal data class User(
     val email: String?,
     val isEmailVerified: Boolean,
     val name: String?,
@@ -11,7 +11,7 @@ data class User(
 
     companion object {
 
-        fun fromFirebaseUser(firebaseUser: FirebaseUser): User {
+        internal fun fromFirebaseUser(firebaseUser: FirebaseUser): User {
             return User(
                 email = firebaseUser.email,
                 isEmailVerified = firebaseUser.isEmailVerified,
@@ -21,5 +21,4 @@ data class User(
         }
 
     }
-
 }
