@@ -25,7 +25,7 @@ task clean(type: Delete) {
 allprojects {
     apply { plugin(BuildPlugins.detekt) }
     group = "link.jingweih.android"
-    version = "1.0.4"
+    version = "1.0.5"
     repositories {
         google()
         mavenCentral()
