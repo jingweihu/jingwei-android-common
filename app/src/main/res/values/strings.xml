@@ -5,5 +5,6 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="mvvm_item_name">MVVM Example</string>
-    <string name="firebase_login">Firebase Login Example</string>
+    <string name="firebase_login_item_name">Firebase Login Example</string>
+    <string name="compose_item_name">Compose Example</string>
 </resources>

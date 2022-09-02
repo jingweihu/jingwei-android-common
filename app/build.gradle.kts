@@ -5,6 +5,7 @@ plugins {
     id (BuildPlugins.kotlinKapt)
     id (BuildPlugins.androidHilt)
     id (BuildPlugins.googleServices)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -52,6 +53,10 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.0"
     }
 }
 
@@ -71,7 +76,7 @@ dependencies {
     implementation("com.google.firebase:firebase-common-ktx:20.1.1")
 
     //ANDROID
-    implementation(libs.google.material)
+    implementation(libs.android.material)
     implementation(libs.android.activity)
     implementation(libs.android.appCompat)
     implementation(libs.android.constraintLayout)
@@ -82,6 +87,15 @@ dependencies {
     implementation(libs.android.lifecycle.livedata)
     implementation(libs.android.lifecycle.viewmodel)
     implementation(libs.android.hilt)
+
+    // Android-Compose
+    implementation(libs.android.compose.material)
+    implementation(libs.android.compose.animation)
+    implementation(libs.android.compose.activity)
+    implementation(libs.android.compose.viewmodel)
+    implementation(libs.android.compose.ui)
+    implementation(libs.android.compose.ui.graphic)
+
     kapt(libs.android.hilt.compiler)
 
     testImplementation(libs.test.junit)

@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import link.jingweih.android.identity.ui.FirebaseLoginActivityContract
 import link.jingweih.android.sandboxapp.databinding.ActivityMainBinding
+import link.jingweih.android.sandboxapp.ui.composeexample.ComposeExampleActivity
 import link.jingweih.android.sandboxapp.ui.mvvmexample.MvvmExampleActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_login -> {
                 createLoginActivity.launch(getString(R.string.app_name))
+            }
+            R.id.nav_compose -> {
+                val intent = Intent(this, ComposeExampleActivity::class.java)
+                startActivity(intent)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

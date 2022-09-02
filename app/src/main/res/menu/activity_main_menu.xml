@@ -7,5 +7,9 @@
 
     <item
         android:id="@+id/nav_login"
-        android:title="@string/firebase_login" />
+        android:title="@string/firebase_login_item_name" />
+
+    <item
+        android:id="@+id/nav_compose"
+        android:title="@string/compose_item_name" />
 </menu>
